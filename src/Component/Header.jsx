@@ -25,7 +25,7 @@ export default function Header() {
 
         {/* Brand name (center only on desktop) */}
         <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Cartifiy</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-black">Cartifiy</h1>
         </div>
 
         {/* Desktop Menu (right aligned) */}
