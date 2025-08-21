@@ -32,9 +32,6 @@ export default function Header() {
             className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full object-cover"
             alt="Logo"
           />
-          <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-[#fc8019]">
-            Cartify
-          </h1>
         </div>
 
         {/* Search Bar (always visible) */}
