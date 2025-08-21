@@ -57,7 +57,7 @@ export default function Login() {
 
           {/* Buttons */}
           <div className="flex gap-4 w-full max-w-sm mt-4">
-            <button className="flex-1 bg-blue-600 text-white rounded-full py-2 font-medium hover:bg-blue-700 transition">
+            <button className="flex-1 bg-blue-600 text-blue-600 rounded-full py-2 font-medium hover:bg-blue-700 transition">
               Login
             </button>
             <Link

@@ -13,55 +13,57 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      {/* Fixed Header */}
+      {/* Full-width fixed Header */}
       <Header />
 
-      {/* Add padding-top so content doesn't hide behind header */}
-      <div className="pt-20">
-        <Routes>
-          {/* Home Page */}
-          <Route
-            path="/"
-            element={
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <Card_Header />
-                <Slider />
-                <Mobile_Component />
-                <Electronics />
-                <Tv_Appliance />
-                <New_product />
-              </div>
-            }
-          />
+      {/* Add padding-top so content isn't hidden behind header */}
+      <div className="pt-20 flex flex-col items-center w-full min-h-screen">
+        <div className="w-full max-w-7xl mx-auto px-4">
+          <Routes>
+            {/* Home Page */}
+            <Route
+              path="/"
+              element={
+                <div className="flex flex-col items-center w-full">
+                  <Card_Header />
+                  <Slider />
+                  <Mobile_Component />
+                  <Electronics />
+                  <Tv_Appliance />
+                  <New_product />
+                </div>
+              }
+            />
 
-          {/* Auth Pages */}
-          <Route
-            path="/login"
-            element={
-              <div className="flex justify-center items-center min-h-screen px-4">
-                <Login />
-              </div>
-            }
-          />
-          <Route
-            path="/signup"
-            element={
-              <div className="flex justify-center items-center min-h-screen px-4">
-                <Signup />
-              </div>
-            }
-          />
+            {/* Auth Pages */}
+            <Route
+              path="/login"
+              element={
+                <div className="flex justify-center items-center min-h-screen px-4">
+                  <Login />
+                </div>
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <div className="flex justify-center items-center min-h-screen px-4">
+                  <Signup />
+                </div>
+              }
+            />
 
-          {/* Example Cart */}
-          <Route
-            path="/cart"
-            element={
-              <div className="flex justify-center items-center min-h-screen px-4">
-                <Login />
-              </div>
-            }
-          />
-        </Routes>
+            {/* Example Cart */}
+            <Route
+              path="/cart"
+              element={
+                <div className="flex justify-center items-center min-h-screen px-4">
+                  <Login />
+                </div>
+              }
+            />
+          </Routes>
+        </div>
       </div>
     </Router>
   );
