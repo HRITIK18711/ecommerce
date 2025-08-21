@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-const mobiles = [
+const appliances = [
   { img: "/Image/t1.jpg", name: "Samsung TVs", price: "From ₹10,599*" },
   { img: "/Image/t2.jpg", name: "Washing Machine", price: "From ₹9999*" },
   { img: "/Image/t3.jpg", name: "Refrigerators", price: "From ₹9,999*" },
@@ -14,13 +14,15 @@ export default function Tv_Appliance() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(4);
 
-  // Detect screen size & set items per view
+  // Responsive itemsPerView
   useEffect(() => {
     const updateItemsPerView = () => {
-      if (window.innerWidth < 768) {
-        setItemsPerView(2); // Mobile → 2 items
+      if (window.innerWidth < 640) {
+        setItemsPerView(1); // mobile
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(2); // tablet
       } else {
-        setItemsPerView(4); // Desktop → 4 items
+        setItemsPerView(4); // desktop
       }
     };
 
@@ -31,7 +33,7 @@ export default function Tv_Appliance() {
   }, []);
 
   const nextSlide = () => {
-    if (currentIndex < mobiles.length - itemsPerView) {
+    if (currentIndex < appliances.length - itemsPerView) {
       setCurrentIndex((prev) => prev + 1);
     }
   };
@@ -44,7 +46,8 @@ export default function Tv_Appliance() {
 
   return (
     <div className="w-full bg-white py-6 relative">
-      <h2 className="text-xl md:text-2xl font-bold px-6 md:px-16 mb-4">
+      {/* Heading */}
+      <h2 className="text-lg sm:text-xl md:text-2xl font-bold px-6 md:px-16 mb-4 text-black">
         TV and Appliances
       </h2>
 
@@ -54,7 +57,9 @@ export default function Tv_Appliance() {
         <button
           onClick={prevSlide}
           disabled={currentIndex === 0}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md disabled:opacity-40"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 
+                     bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md 
+                     disabled:opacity-40"
         >
           <FaChevronLeft />
         </button>
@@ -67,21 +72,23 @@ export default function Tv_Appliance() {
               transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
             }}
           >
-            {mobiles.map((mobile, index) => (
+            {appliances.map((appliance, index) => (
               <div
                 key={index}
-                className={`min-w-[${100 / itemsPerView}%] bg-white flex flex-col items-center cursor-pointer hover:scale-105 transition-transform duration-300`}
+                className="bg-white flex flex-col items-center cursor-pointer 
+                           hover:scale-105 transition-transform duration-300"
+                style={{ minWidth: `${100 / itemsPerView}%` }}
               >
                 <img
-                  src={mobile.img}
-                  alt={mobile.name}
+                  src={appliance.img}
+                  alt={appliance.name}
                   className="w-full h-[200px] md:h-[220px] object-contain"
                 />
                 <p className="mt-2 text-sm md:text-base font-medium text-gray-900 text-center">
-                  {mobile.name}
+                  {appliance.name}
                 </p>
                 <p className="text-sm md:text-base text-gray-700 font-semibold text-center">
-                  {mobile.price}
+                  {appliance.price}
                 </p>
               </div>
             ))}
@@ -91,8 +98,10 @@ export default function Tv_Appliance() {
         {/* Right Button */}
         <button
           onClick={nextSlide}
-          disabled={currentIndex >= mobiles.length - itemsPerView}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md disabled:opacity-40"
+          disabled={currentIndex >= appliances.length - itemsPerView}
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 
+                     bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md 
+                     disabled:opacity-40"
         >
           <FaChevronRight />
         </button>

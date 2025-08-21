@@ -34,8 +34,8 @@ export default function Header() {
           />
         </div>
 
-        {/* Search Bar (always visible) */}
-        <div className="flex flex-1 max-w-lg">
+        {/* Search Bar (hidden on very small screens, shown from sm+) */}
+        <div className="hidden sm:flex flex-1 max-w-md">
           <input
             type="text"
             value={search}
@@ -66,13 +66,36 @@ export default function Header() {
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex-shrink-0">
+        <div className="md:hidden flex items-center gap-2">
+          {/* Small search button for mobile */}
+          <button className="text-gray-700 text-xl">
+            <FaSearch />
+          </button>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="text-gray-700 text-2xl focus:outline-none"
             aria-label="Toggle menu"
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Search (below navbar on small screens) */}
+      <div className="sm:hidden px-3 pb-2">
+        <div className="flex w-full">
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search for products..."
+            className="w-full px-3 py-2 rounded-l-full border border-gray-300 
+                       bg-gray-50 text-gray-700 placeholder-gray-500
+                       focus:outline-none focus:ring-2 focus:ring-[#fc8019] focus:border-[#fc8019]
+                       text-sm"
+          />
+          <button className="px-4 bg-[#fc8019] text-white rounded-r-full flex items-center justify-center">
+            <FaSearch />
           </button>
         </div>
       </div>
