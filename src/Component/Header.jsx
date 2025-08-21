@@ -1,22 +1,19 @@
 import React, { useState } from "react";
-import {
-  IoHomeOutline
-} from "react-icons/io5";
+import { IoHomeOutline } from "react-icons/io5";
 import {
   FaInfoCircle,
-  FaPhone,
   FaBars,
   FaTimes,
   FaShoppingCart,
-  FaUser
+  FaUser,
+  FaSearch,
 } from "react-icons/fa";
-import { Link } from "react-router-dom"; // ✅ Import Link
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [search, setSearch] = useState("");
 
-  // ✅ Navigation links
   const links = [
     { icon: <IoHomeOutline />, name: "Home", path: "/" },
     { icon: <FaUser />, name: "Sign In", path: "/login" },
@@ -25,43 +22,45 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-cyan-100 shadow-md p-3 fixed top-0 left-0 w-full z-50">
-      <div className="flex items-center justify-between max-w-[1400px] mx-auto gap-4">
+    <header className="bg-cyan-100 shadow-md fixed top-0 left-0 w-full z-50">
+      <div className="flex items-center justify-between max-w-[1400px] mx-auto px-3 py-2 gap-3">
         
         {/* Logo */}
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <img
             src="/Image/cartify_logo.png"
-            className="w-12 h-12 rounded-full object-cover"
+            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full object-cover"
             alt="Logo"
           />
-          <h1 className="text-lg md:text-xl font-bold text-[#fc8019] hidden sm:block">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-[#fc8019]">
             Cartify
           </h1>
         </div>
 
-        {/* Search Bar (desktop + tablet) */}
-        <div className="hidden sm:flex flex-1 justify-center px-2">
+        {/* Search Bar (always visible) */}
+        <div className="flex flex-1 max-w-lg">
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search for products..."
-            className="w-full max-w-md px-4 py-2 rounded-full border border-gray-300 
+            className="w-full px-3 py-2 rounded-l-full border border-gray-300 
                        bg-gray-50 text-gray-700 placeholder-gray-500
                        focus:outline-none focus:ring-2 focus:ring-[#fc8019] focus:border-[#fc8019]
-                       transition text-sm md:text-base"
+                       text-sm md:text-base"
           />
+          <button className="px-4 bg-[#fc8019] text-white rounded-r-full flex items-center justify-center">
+            <FaSearch />
+          </button>
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-6 lg:gap-8 text-gray-700 font-medium text-sm lg:text-base">
+        <nav className="hidden md:flex gap-6 text-gray-700 font-medium text-sm md:text-base items-center">
           {links.map((link, index) => (
             <Link
               key={index}
               to={link.path}
-              className="flex items-center gap-2 cursor-pointer 
-                         hover:text-[#fc8019] transition duration-200"
+              className="flex items-center gap-1 hover:text-[#fc8019] transition duration-200"
             >
               {link.icon}
               {link.name}
@@ -70,7 +69,7 @@ export default function Header() {
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <div className="md:hidden">
+        <div className="md:hidden flex-shrink-0">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="text-gray-700 text-2xl focus:outline-none"
@@ -86,26 +85,13 @@ export default function Header() {
         className={`md:hidden bg-white text-gray-800 shadow-md absolute top-full left-0 w-full transition-all duration-300 ease-in-out 
         ${menuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}
       >
-        {/* Mobile Search */}
-        <div className="p-3 border-b">
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search for products..."
-            className="w-full px-3 py-2 rounded-full border border-gray-300 
-                       bg-gray-50 text-gray-700 placeholder-gray-500
-                       focus:outline-none focus:ring-2 focus:ring-[#fc8019]"
-          />
-        </div>
-
-        <ul className="flex flex-col gap-4 p-4 text-sm">
+        <ul className="flex flex-col gap-4 p-4 text-base font-medium">
           {links.map((link, index) => (
             <li key={index}>
               <Link
                 to={link.path}
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-2 hover:text-[#fc8019] cursor-pointer transition"
+                className="flex items-center gap-2 hover:text-[#fc8019] transition"
               >
                 {link.icon}
                 {link.name}
