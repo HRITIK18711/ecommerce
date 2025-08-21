@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import { IoHomeOutline } from "react-icons/io5";
-import { FaInfoCircle, FaPhone, FaBars, FaTimes, FaShoppingCart, FaUser } from "react-icons/fa";
+import {
+  FaInfoCircle,
+  FaPhone,
+  FaBars,
+  FaTimes,
+  FaShoppingCart,
+  FaUser,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const links = [
-    { icon: <IoHomeOutline />, name: "Home", path: "/" },
-    
-  ];
+  const links = [{ icon: <IoHomeOutline />, name: "Home", path: "/" }];
 
   return (
     <header className="bg-cyan-100 shadow-md sticky top-0 left-0 w-full z-50">
       <div className="w-full flex justify-between items-center p-4 md:px-8 relative">
         {/* Logo (always left) */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center">
           <img
             src="/Image/cartify_logo.png"
             className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover"
@@ -23,12 +27,12 @@ export default function Header() {
           />
         </div>
 
-        {/* Brand name (center only on desktop) */}
-        <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2">
-          <h1 className="text-2xl md:text-3xl font-bold text-black">Cartifiy</h1>
+        {/* Brand Name (center for both mobile + desktop) */}
+        <div className="absolute left-1/2 transform -translate-x-1/2">
+          <h1 className="text-xl md:text-3xl font-bold text-black">Cartifiy</h1>
         </div>
 
-        {/* Desktop Menu (right aligned) */}
+        {/* Desktop Menu (right side) */}
         <nav className="hidden md:flex items-center space-x-6 ml-auto">
           {links.map((link, index) => (
             <Link
@@ -49,7 +53,7 @@ export default function Header() {
           </div>
         </nav>
 
-        {/* Mobile Menu Icon */}
+        {/* Mobile Menu Toggle (right side) */}
         <div
           className="md:hidden text-2xl cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -58,7 +62,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Dropdown */}
       {menuOpen && (
         <div className="md:hidden bg-white shadow-md p-4 space-y-4">
           {links.map((link, index) => (
