@@ -48,7 +48,7 @@ export default function Electronics() {
 
   return (
     <div className="w-full bg-white py-6 relative">
-      <h2 className="text-xl md:text-2xl font-bold px-6 md:px-16 mb-4">
+      <h2 className="text-xl text-black md:text-2xl font-bold px-6 md:px-16 mb-4">
         Best of Electronics
       </h2>
 
@@ -72,7 +72,8 @@ export default function Electronics() {
             {mobiles.map((mobile, index) => (
               <div
                 key={index}
-                className={`min-w-[${100 / itemsPerView}%] bg-white flex flex-col items-center cursor-pointer hover:scale-105 transition-transform duration-300`}
+                style={{ minWidth: `${100 / itemsPerView}%` }} // ✅ fixed responsive card width
+                className="bg-white flex flex-col items-center cursor-pointer hover:scale-105 transition-transform duration-300"
               >
                 <img
                   src={mobile.img}
