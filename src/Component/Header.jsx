@@ -1,13 +1,22 @@
 import React, { useState } from "react";
-import { IoHomeOutline } from "react-icons/io5";
-import { FaInfoCircle, FaPhone, FaBars, FaTimes, FaShoppingCart, FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";   // ✅ Import Link
+import {
+  IoHomeOutline
+} from "react-icons/io5";
+import {
+  FaInfoCircle,
+  FaPhone,
+  FaBars,
+  FaTimes,
+  FaShoppingCart,
+  FaUser
+} from "react-icons/fa";
+import { Link } from "react-router-dom"; // ✅ Import Link
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [search, setSearch] = useState("");
 
-  // ✅ Add routes here for navigation
+  // ✅ Navigation links
   const links = [
     { icon: <IoHomeOutline />, name: "Home", path: "/" },
     { icon: <FaUser />, name: "Sign In", path: "/login" },
@@ -16,21 +25,23 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-cyan-100 shadow-md p-4 fixed top-0 left-0 w-full z-50">
-      <div className="flex items-center justify-between max-w-[1400px] mx-auto gap-6">
+    <header className="bg-cyan-100 shadow-md p-3 fixed top-0 left-0 w-full z-50">
+      <div className="flex items-center justify-between max-w-[1400px] mx-auto gap-4">
         
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <img
             src="/Image/cartify_logo.png"
-            className="w-15 h-15 rounded-full object-cover"
+            className="w-12 h-12 rounded-full object-cover"
             alt="Logo"
           />
-          <h1 className="text-xl font-bold text-[#fc8019] hidden sm:block">Cartify</h1>
+          <h1 className="text-lg md:text-xl font-bold text-[#fc8019] hidden sm:block">
+            Cartify
+          </h1>
         </div>
 
-        {/* Search Bar (desktop only) */}
-        <div className="hidden md:flex flex-1 justify-center">
+        {/* Search Bar (desktop + tablet) */}
+        <div className="hidden sm:flex flex-1 justify-center px-2">
           <input
             type="text"
             value={search}
@@ -39,16 +50,16 @@ export default function Header() {
             className="w-full max-w-md px-4 py-2 rounded-full border border-gray-300 
                        bg-gray-50 text-gray-700 placeholder-gray-500
                        focus:outline-none focus:ring-2 focus:ring-[#fc8019] focus:border-[#fc8019]
-                       transition"
+                       transition text-sm md:text-base"
           />
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-8 text-gray-700 font-semibold text-sm lg:text-base">
+        <nav className="hidden md:flex gap-6 lg:gap-8 text-gray-700 font-medium text-sm lg:text-base">
           {links.map((link, index) => (
             <Link
               key={index}
-              to={link.path}   // ✅ Link to route
+              to={link.path}
               className="flex items-center gap-2 cursor-pointer 
                          hover:text-[#fc8019] transition duration-200"
             >
@@ -71,37 +82,38 @@ export default function Header() {
       </div>
 
       {/* Mobile Nav Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-white text-gray-800 shadow-md absolute top-full left-0 w-full transition-all duration-300 ease-in-out">
-          {/* Mobile Search */}
-          <div className="p-4 border-b">
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search for products..."
-              className="w-full px-4 py-2 rounded-full border border-gray-300 
-                         bg-gray-50 text-gray-700 placeholder-gray-500
-                         focus:outline-none focus:ring-2 focus:ring-[#fc8019]"
-            />
-          </div>
-
-          <ul className="flex flex-col gap-4 p-4">
-            {links.map((link, index) => (
-              <li key={index}>
-                <Link
-                  to={link.path}   // ✅ Link for mobile menu
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-2 hover:text-[#fc8019] cursor-pointer transition"
-                >
-                  {link.icon}
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+      <div
+        className={`md:hidden bg-white text-gray-800 shadow-md absolute top-full left-0 w-full transition-all duration-300 ease-in-out 
+        ${menuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}
+      >
+        {/* Mobile Search */}
+        <div className="p-3 border-b">
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search for products..."
+            className="w-full px-3 py-2 rounded-full border border-gray-300 
+                       bg-gray-50 text-gray-700 placeholder-gray-500
+                       focus:outline-none focus:ring-2 focus:ring-[#fc8019]"
+          />
         </div>
-      )}
+
+        <ul className="flex flex-col gap-4 p-4 text-sm">
+          {links.map((link, index) => (
+            <li key={index}>
+              <Link
+                to={link.path}
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-2 hover:text-[#fc8019] cursor-pointer transition"
+              >
+                {link.icon}
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </header>
   );
 }

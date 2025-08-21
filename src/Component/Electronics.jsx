@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const mobiles = [
@@ -12,7 +12,27 @@ const mobiles = [
 
 export default function Electronics() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 4;
+  const [itemsPerView, setItemsPerView] = useState(4);
+
+  // ✅ Responsive logic
+  useEffect(() => {
+    const updateItemsPerView = () => {
+      if (window.innerWidth < 640) {
+        setItemsPerView(1); // mobile
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(2); // tablet
+      } else if (window.innerWidth < 1280) {
+        setItemsPerView(3); // small desktop
+      } else {
+        setItemsPerView(4); // large desktop
+      }
+    };
+
+    updateItemsPerView();
+    window.addEventListener("resize", updateItemsPerView);
+
+    return () => window.removeEventListener("resize", updateItemsPerView);
+  }, []);
 
   const nextSlide = () => {
     if (currentIndex < mobiles.length - itemsPerView) {
@@ -52,7 +72,7 @@ export default function Electronics() {
             {mobiles.map((mobile, index) => (
               <div
                 key={index}
-                className="min-w-[25%] bg-white flex flex-col items-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                className={`min-w-[${100 / itemsPerView}%] bg-white flex flex-col items-center cursor-pointer hover:scale-105 transition-transform duration-300`}
               >
                 <img
                   src={mobile.img}

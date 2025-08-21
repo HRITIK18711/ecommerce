@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const mobiles = [
@@ -12,7 +12,25 @@ const mobiles = [
 
 export default function Mobile_Component() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 4;
+  const [itemsPerView, setItemsPerView] = useState(4);
+
+  // Responsive itemsPerView
+  useEffect(() => {
+    const updateItemsPerView = () => {
+      if (window.innerWidth < 640) {
+        setItemsPerView(1); // mobile
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(2); // tablet
+      } else {
+        setItemsPerView(4); // desktop
+      }
+    };
+
+    updateItemsPerView();
+    window.addEventListener("resize", updateItemsPerView);
+
+    return () => window.removeEventListener("resize", updateItemsPerView);
+  }, []);
 
   const nextSlide = () => {
     if (currentIndex < mobiles.length - itemsPerView) {
@@ -47,12 +65,15 @@ export default function Mobile_Component() {
         <div className="overflow-hidden">
           <div
             className="flex gap-4 transition-transform duration-500"
-            style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
+            style={{
+              transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
+            }}
           >
             {mobiles.map((mobile, index) => (
               <div
                 key={index}
-                className="min-w-[25%] bg-white flex flex-col items-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                className={`min-w-[${100 / itemsPerView}%] bg-white flex flex-col items-center cursor-pointer hover:scale-105 transition-transform duration-300`}
+                style={{ minWidth: `${100 / itemsPerView}%` }}
               >
                 <img
                   src={mobile.img}

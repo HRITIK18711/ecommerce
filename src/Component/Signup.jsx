@@ -19,7 +19,6 @@ export default function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Check if all fields are filled
     if (
       !formData.name ||
       !formData.email ||
@@ -31,10 +30,9 @@ export default function Signup() {
       return;
     }
     if (formData.phone.length !== 10) {
-      setError("⚠️ Phone Number should have 10 digit.");
+      setError("⚠️ Phone Number should have 10 digits.");
       return;
     }
-    // Check if passwords match
     if (formData.password !== formData.confirmPassword) {
       setError("⚠️ Passwords do not match.");
       return;
@@ -42,31 +40,34 @@ export default function Signup() {
 
     setError("");
     alert("✅ Signup Successful!");
-    // You can send formData to backend here
   };
 
   return (
-    <div className="flex h-screen w-screen items-center justify-center bg-gray-100 mt-5">
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4">
       {/* Outer wrapper */}
-      <div className="flex w-3/4 h-3/4 rounded-2xl overflow-hidden shadow-2xl">
-        {/* Left Side - Logo */}
-        <div className="w-1/2 bg-emerald-100 flex flex-col justify-center items-center text-black p-8">
-          <h1 className="text-3xl font-bold">Looks like you're new here!</h1>
-          <p className="mt-2 mb-2 text-lg text-center">
+      <div className="flex flex-col md:flex-row w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl bg-white">
+        {/* Left Side */}
+        <div className="md:w-1/2 w-full bg-emerald-100 flex flex-col justify-center items-center text-black p-8">
+          <h1 className="text-2xl md:text-3xl font-bold text-center">
+            Looks like you're new here!
+          </h1>
+          <p className="mt-2 mb-2 text-base md:text-lg text-center">
             Sign up with your details to get started
           </p>
           <img
             src="/Image/cartify_logo.png"
             alt="Cartify Logo"
-            className="w-40 h-40 mt-6"
+            className="w-28 h-28 md:w-40 md:h-40 mt-6"
           />
         </div>
 
-        {/* Right Side - Signup Form */}
-        <div className="w-1/2 bg-white flex flex-col justify-center items-center p-8">
-          <h2 className="text-2xl font-semibold mb-6">Create Account</h2>
+        {/* Right Side */}
+        <div className="md:w-1/2 w-full bg-white flex flex-col justify-center items-center p-6 md:p-8">
+          <h2 className="text-xl md:text-2xl font-semibold mb-6 text-center">
+            Create Account
+          </h2>
 
-          {/* Signup Form */}
+          {/* Form */}
           <form onSubmit={handleSubmit} className="w-full max-w-sm space-y-4">
             {/* Name */}
             <div>
@@ -138,18 +139,18 @@ export default function Signup() {
               />
             </div>
 
-            {/* Error Message */}
+            {/* Error */}
             {error && <p className="text-red-500 text-sm">{error}</p>}
 
             {/* Buttons */}
             <div className="mt-6">
               <button
                 type="submit"
-                className="w-full text-black rounded-full py-2 font-medium hover:bg-blue-700 transition"
+                className="w-full bg-emerald-200 text-black rounded-full py-2 font-medium hover:bg-emerald-300 transition"
               >
                 Sign Up
               </button>
-              <p className="text-sm text-gray-500 text-center -mt-1">
+              <p className="text-sm text-gray-500 text-center mt-2">
                 Already have an account?{" "}
                 <Link to="/login" className="text-blue-600 hover:underline">
                   Login here
