@@ -8,8 +8,7 @@ export default function Header() {
 
   const links = [
     { icon: <IoHomeOutline />, name: "Home", path: "/" },
-    { icon: <FaInfoCircle />, name: "About", path: "/about" },
-    { icon: <FaPhone />, name: "Contact", path: "/contact" },
+    
   ];
 
   return (
@@ -34,14 +33,14 @@ export default function Header() {
           {/* Icons */}
           <div className="flex items-center space-x-4">
             <FaShoppingCart className="text-xl cursor-pointer" />
-            <FaUser className="text-xl cursor-pointer" />
+            <Link to="/login"><FaUser className="text-xl cursor-pointer" /></Link>
           </div>
           {/* Search Bar */}
           <div className="ml-4">
             <input
               type="text"
               placeholder="Search..."
-              className="px-3 py-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="px-3 py-1  border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
         </nav>
@@ -71,7 +70,7 @@ export default function Header() {
             <input
               type="text"
               placeholder="Search..."
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full text-black px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
           {/* Cart + User icons */}
