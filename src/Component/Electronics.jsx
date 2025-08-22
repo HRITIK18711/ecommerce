@@ -47,7 +47,7 @@ export default function Electronics() {
   };
 
   return (
-    <div className="w-full bg-white py-6 md:ml-[300px] relative">
+    <div className="w-full bg-blue-300 py-6 md:ml-[300px] relative">
       <h2 className="text-xl text-black md:text-2xl font-bold px-6 md:px-16 mb-4">
         Best of Electronics
       </h2>
