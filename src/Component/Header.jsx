@@ -1,109 +1,69 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { IoHomeOutline } from "react-icons/io5";
-import {
-  FaPhone,
-  FaBars,
-  FaTimes,
-  FaShoppingCart,
-  FaUser,
-} from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaShoppingCart, FaUser,FaPhone, FaBars, FaTimes } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
 
   const links = [
     { icon: <IoHomeOutline />, name: "Home", path: "/" },
     { icon: <FaPhone />, name: "Contact", path: "/" },
+    { icon: <FaShoppingCart />, name: "Cart", path: "/" },
+    { icon: <FaUser />, name: "Login", path: "/" },
   ];
 
-  const handleLinkClick = () => {
-    setMenuOpen(false); // Close mobile menu when link clicked
-  };
-
   return (
-    <header className="bg-cyan-100 md:ml-40 shadow-md sticky top-0 left-0 w-full z-50">
-      <div className="flex justify-between items-center p-4 md:px-8">
-        {/* Logo + Brand */}
-        <div className="flex items-center space-x-2">
-          <img
-            src="/Image/cartify_logo.png"
-            className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover"
-            alt="Logo"
-          />
-          <h1 className="text-xl md:text-3xl font-bold text-black">Cartify</h1>
+    <header className="p-4 shadow-xl bg-black md:ml-[250px] ">
+      <div className="flex items-center justify-between w-full max-w-[1400px] mx-auto">
+        {/* Logo */}
+        <div className="w-[100px] md:w-[130px]">
+          <img src="/Image/cartify_logo.png" className="rounded-full" alt="Logo" />
         </div>
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center space-x-4">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-48 max-w-xs border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex gap-6 lg:gap-10 text-white font-semibold text-sm lg:text-base">
           {links.map((link, index) => (
             <Link
               key={index}
               to={link.path}
-              className="flex items-center space-x-1 text-black hover:text-blue-600"
+              className="flex items-center gap-2 hover:text-[#fc8019] transition duration-200"
             >
               {link.icon}
-              <span>{link.name}</span>
+              {link.name}
             </Link>
           ))}
-
-          <div className="flex items-center space-x-4">
-            <FaShoppingCart className="text-xl cursor-pointer" />
-            <Link to="/">
-              <FaUser className="text-xl cursor-pointer" />
-            </Link>
-          </div>
         </nav>
 
-        {/* Mobile Toggle */}
-        <div
-          className="md:hidden text-2xl cursor-pointer"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden">
+          <button onClick={() => setMenuOpen(!menuOpen)} className="text-white text-2xl focus:outline-none">
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-white shadow-md p-4 space-y-4">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
+      {/* Mobile Nav Menu */}
+     {/* Mobile Nav Menu */}
+{menuOpen && (
+  <div className="md:hidden bg-black text-white p-4 absolute top-[80px] left-0 w-full shadow-md z-50">
+    <ul className="flex flex-col gap-4">
+      {links.map((link, index) => (
+        <li key={index}>
+          <Link
+            to={link.path}
+            className="flex items-center gap-2 hover:text-[#fc8019]"
+            onClick={() => setMenuOpen(false)} // close menu on click
+          >
+            {link.icon}
+            {link.name}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
 
-          {links.map((link, index) => (
-            <Link
-              key={index}
-              to={link.path}
-              className="flex items-center space-x-2 text-gray-700 hover:text-blue-600"
-              onClick={handleLinkClick}
-            >
-              {link.icon}
-              <span>{link.name}</span>
-            </Link>
-          ))}
-
-          <div className="flex items-center space-x-6 pt-2">
-            <FaShoppingCart className="text-xl cursor-pointer" />
-            <Link to="/">
-              <FaUser className="text-xl cursor-pointer" />
-            </Link>
-          </div>
-        </div>
-      )}
     </header>
   );
 }
