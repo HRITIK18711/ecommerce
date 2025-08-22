@@ -45,7 +45,7 @@ export default function Mobile_Component() {
   };
 
   return (
-    <div className="w-full bg-white py-6 relative">
+    <div className="w-full bg-white py-6 ml-100 relative">
       <h2 className="text-xl text-black md:text-2xl font-bold px-6 md:px-16 mb-4">
         Best Deals on Smartphones
       </h2>

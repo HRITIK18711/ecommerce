@@ -12,7 +12,7 @@ const categories = [
 
 export default function Card_Header() {
   return (
-    <div className="w-full bg-white shadow-sm z-30 mt-16">
+    <div className="w-full ml-100 bg-white shadow-sm z-30 -mt-5">
       <div
         className="
           grid 
