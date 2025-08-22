@@ -6,18 +6,17 @@ import Mobile_Component from "./Component/Mobile_Component";
 import Electronics from "./Component/Electronics";
 import Tv_Appliance from "./Component/Tv_Appliance";
 import Furniture from "./Component/Furniture";
-import Login from "./Component/Login";
-import Signup from "./Component/Signup";
+
 import "./App.css";
 
 function App() {
   return (
     <Router>
-      {/* Full-width fixed Header */}
+      {/* Sticky Header */}
       <Header />
 
-      {/* Add padding-top so content isn't hidden behind header */}
-      <div className="pt-20 flex flex-col items-center w-full min-h-screen">
+      {/* Content Wrapper */}
+      <div className="pt-20 w-full"> {/* Add padding equal to header height */}
         <div className="w-full max-w-7xl mx-auto px-4">
           <Routes>
             {/* Home Page */}
@@ -35,33 +34,8 @@ function App() {
               }
             />
 
-            {/* Auth Pages */}
-            <Route
-              path="/login"
-              element={
-                <div className="flex justify-center items-center min-h-screen px-4">
-                  <Login />
-                </div>
-              }
-            />
-            <Route
-              path="/signup"
-              element={
-                <div className="flex justify-center items-center min-h-screen px-4">
-                  <Signup />
-                </div>
-              }
-            />
-
-            {/* Example Cart */}
-            <Route
-              path="/cart"
-              element={
-                <div className="flex justify-center items-center min-h-screen px-4">
-                  <Login />
-                </div>
-              }
-            />
+            
+            
           </Routes>
         </div>
       </div>
