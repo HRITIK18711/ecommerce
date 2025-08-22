@@ -2,7 +2,7 @@ import React from "react";
 
 export default function New_product() {
   return (
-    <div className="p-4 sm:p-6 grid grid-cols-1 md:ml-[100px] lg:grid-cols-2 gap-6">
+    <div className="p-4 sm:p-6 grid grid-cols-1  lg:grid-cols-2 gap-6">
       {/* Home Decor & Furnishings */}
       <div className="space-y-4">
         <h2 className="text-lg sm:text-xl font-semibold">
@@ -53,7 +53,7 @@ export default function New_product() {
       </div>
 
       {/* Monsoon Ready Styles */}
-      <div className="space-y-4 ">
+      <div className="space-y-4">
         <h2 className="text-lg sm:text-xl font-semibold">
           Monsoon Ready Styles
         </h2>
