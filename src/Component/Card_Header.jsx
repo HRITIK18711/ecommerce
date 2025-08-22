@@ -15,15 +15,21 @@ export default function Card_Header() {
     <div className="w-full bg-white shadow-sm z-30 -mt-5 md:ml-[300px]">
       <div
         className="
-          grid 
-          grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 
-          gap-4 sm:gap-6 px-4 md:px-10 py-6
+          flex 
+          lg:grid lg:grid-cols-7 
+          gap-4 sm:gap-6 px-4 md:px-10 py-6 
+          overflow-x-auto scrollbar-hide
         "
       >
         {categories.map((cat, index) => (
           <div
             key={index}
-            className="flex flex-col items-center cursor-pointer group"
+            className="
+              flex-none lg:flex-auto 
+              flex flex-col items-center 
+              cursor-pointer group 
+              w-16 sm:w-20 lg:w-auto
+            "
           >
             {/* Icon */}
             <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center">
