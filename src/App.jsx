@@ -5,7 +5,7 @@ import Slider from "./Component/Slider";
 import Mobile_Component from "./Component/Mobile_Component";
 import Electronics from "./Component/Electronics";
 import Tv_Appliance from "./Component/Tv_Appliance";
-import New_product from "./Component/New_product";
+import Furniture from "./Component/Furniture";
 import Login from "./Component/Login";
 import Signup from "./Component/Signup";
 import "./App.css";
@@ -30,7 +30,7 @@ function App() {
                   <Mobile_Component />
                   <Electronics />
                   <Tv_Appliance />
-                  <New_product />
+                  <Furniture />
                 </div>
               }
             />

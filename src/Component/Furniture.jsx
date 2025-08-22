@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-const mobiles = [
-  { img: "/Image/m1.jpg", name: "Vivo T4x 5G", price: "From ₹13,499*" },
-  { img: "/Image/m2.jpg", name: "Motorola Edge 60 Fusion", price: "From ₹20,999*" },
-  { img: "/Image/m3.jpg", name: "Vivo T4 5G", price: "From ₹20,499*" },
-  { img: "/Image/m4.jpg", name: "Samsung Galaxy S25 Ultra", price: "From ₹1,17,999*" },
-  { img: "/Image/m5.jpg", name: "Iphone 16", price: "From ₹69,999*" },
-  { img: "/Image/m6.jpg", name: "Galaxy S24 FE 5G", price: "From ₹39,999*" },
+const appliances = [
+  { img: "/Image/f1.webp", name: "Mattresses", price: "From ₹2,990" },
+  { img: "/Image/f2.webp", name: "Sofa & Sectional", price: "From ₹7,999" },
+  { img: "/Image/f3.webp", name: "Office Study Chair", price: "From ₹1,890" },
+  { img: "/Image/f4.webp", name: "Beds", price: "From ₹1,790" },
+  { img: "/Image/f5.webp", name: "TV Units", price: "₹1,249" },
+  { img: "/Image/f6.webp", name: "Sofa Set", price: "From ₹21,999*" },
 ];
 
-export default function Mobile_Component() {
+export default function Furniture() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(4);
 
@@ -33,7 +33,7 @@ export default function Mobile_Component() {
   }, []);
 
   const nextSlide = () => {
-    if (currentIndex < mobiles.length - itemsPerView) {
+    if (currentIndex < appliances.length - itemsPerView) {
       setCurrentIndex((prev) => prev + 1);
     }
   };
@@ -45,9 +45,10 @@ export default function Mobile_Component() {
   };
 
   return (
-    <div className="w-full bg-amber-100 py-6 md:ml-[300px] relative mt-2">
-      <h2 className="text-xl text-black md:text-2xl font-bold px-6 md:px-16 mb-4">
-        Best Deals on Smartphones
+    <div className="w-full bg-indigo-200 py-6 md:ml-[300px] mt-2 relative">
+      {/* Heading */}
+      <h2 className="text-lg sm:text-xl md:text-2xl font-bold px-6 md:px-16 mb-4 text-black">
+       Furniture Deals
       </h2>
 
       {/* Slider Container */}
@@ -56,7 +57,9 @@ export default function Mobile_Component() {
         <button
           onClick={prevSlide}
           disabled={currentIndex === 0}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md disabled:opacity-40"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 
+                     bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md 
+                     disabled:opacity-40"
         >
           <FaChevronLeft />
         </button>
@@ -69,22 +72,23 @@ export default function Mobile_Component() {
               transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
             }}
           >
-            {mobiles.map((mobile, index) => (
+            {appliances.map((appliance, index) => (
               <div
                 key={index}
-                className={`min-w-[${100 / itemsPerView}%] bg-white flex flex-col items-center cursor-pointer hover:scale-105 transition-transform duration-300`}
+                className="bg-white flex flex-col items-center cursor-pointer 
+                           hover:scale-105 transition-transform duration-300"
                 style={{ minWidth: `${100 / itemsPerView}%` }}
               >
                 <img
-                  src={mobile.img}
-                  alt={mobile.name}
-                  className="w-full h-[220px] object-contain"
+                  src={appliance.img}
+                  alt={appliance.name}
+                  className="w-full h-[200px] md:h-[220px] object-contain"
                 />
                 <p className="mt-2 text-sm md:text-base font-medium text-gray-900 text-center">
-                  {mobile.name}
+                  {appliance.name}
                 </p>
                 <p className="text-sm md:text-base text-gray-700 font-semibold text-center">
-                  {mobile.price}
+                  {appliance.price}
                 </p>
               </div>
             ))}
@@ -94,8 +98,10 @@ export default function Mobile_Component() {
         {/* Right Button */}
         <button
           onClick={nextSlide}
-          disabled={currentIndex >= mobiles.length - itemsPerView}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md disabled:opacity-40"
+          disabled={currentIndex >= appliances.length - itemsPerView}
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 
+                     bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md 
+                     disabled:opacity-40"
         >
           <FaChevronRight />
         </button>

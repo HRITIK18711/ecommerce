@@ -16,7 +16,7 @@ export default function Header() {
   const links = [{ icon: <IoHomeOutline />, name: "Home", path: "/" }];
 
   return (
-    <header className="bg-cyan-100 shadow-md sticky top-0 left-0 w-full z-50 md:ml-50">
+    <header className="bg-cyan-100 shadow-md sticky top-0 left-0 w-full z-50 md:ml-40">
   <div className="w-full flex justify-between items-center p-4 md:px-8 relative">
     {/* Logo (always left) */}
     <div className="flex items-center">
