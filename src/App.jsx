@@ -17,7 +17,7 @@ function MainContent() {
     <div className="main-content">
       {isHome ? (
         <>
-          
+          <Card_Header />
           <Slider />
           {/* <Mobile_Component /> */}
           {/* <Electronics />
@@ -40,7 +40,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <Card_Header />
+      
       <MainContent />
     </Router>
   );
