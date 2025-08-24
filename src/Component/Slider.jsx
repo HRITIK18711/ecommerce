@@ -15,7 +15,7 @@ export default function Slider() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 4000);
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -34,7 +34,7 @@ export default function Slider() {
         <img
           src={images[currentIndex].src}
           alt={images[currentIndex].name}
-          className="w-full h-full object-cover bg-black transition-all duration-500 ease-in-out"
+          className="w-full h-full  bg-black transition-all duration-500 ease-in-out"
         />
 
         {/* Overlay Name */}
