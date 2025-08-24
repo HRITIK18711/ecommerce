@@ -19,7 +19,7 @@ const Mobile = () => {
   return (
     <div className="p-4 mt-30 md:mt-50 border-2 border-black bg-amber-200  w-[360px] md:w-[1520px]">
       {/* Brand Grid */}
-      <div className="ml-10  grid grid-cols-1 sm:grid-cols-2 bg-cyan-100 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-5">
+      <div className="md:ml-10 ml-2  grid grid-cols-1 sm:grid-cols-2 bg-cyan-100 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-5">
         {brands.map((brand, index) => (
           <div
             key={index}
