@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const images = [
-  { src: "/Image/zfold7.png", name: "Samsung Galaxy Z Fold 7" },
+  
   { src: "/Image/iphone16.jpg", name: "iPhone 16" },
   { src: "/Image/vivov60.jpg", name: "Vivo V60" },
-  { src: "/Image/opo.png", name: "Oppo Flagship" },
+  
 ];
 
 export default function Slider() {
@@ -28,18 +28,18 @@ export default function Slider() {
   };
 
   return (
-    <div className="relative md:ml-[300px] w-full overflow-hidden mt-[5px]">
+    <div className="relative w-full overflow-hidden">
       {/* Slide Image */}
-      <div className="relative w-full h-[220px] sm:h-[300px] md:h-[420px] lg:h-[520px]">
+      <div className="relative w-full h-[220px] sm:h-[200px] md:h-[200px] lg:h-[650px] xl:h-[750px]">
         <img
           src={images[currentIndex].src}
           alt={images[currentIndex].name}
-          className="w-full h-full object-cover sm:object-contain bg-black transition-all duration-500 ease-in-out"
+          className="w-full h-full object-cover bg-black transition-all duration-500 ease-in-out"
         />
 
         {/* Overlay Name */}
-        <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 via-black/40 to-transparent p-2 sm:p-4 text-center">
-          <h2 className="text-white text-base sm:text-xl md:text-3xl lg:text-4xl font-bold drop-shadow-lg">
+        <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 via-black/40 to-transparent p-3 sm:p-6 text-center">
+          <h2 className="text-white text-base sm:text-xl md:text-3xl lg:text-5xl font-bold drop-shadow-lg">
             {images[currentIndex].name}
           </h2>
         </div>
@@ -48,31 +48,20 @@ export default function Slider() {
       {/* Left Arrow */}
       <button
         onClick={goToPrev}
-        className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-700 p-1 sm:p-2 rounded-full shadow"
+        className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-700 p-2 sm:p-3 lg:p-4 rounded-full shadow"
       >
-        <FaChevronLeft size={18} className="sm:w-5 sm:h-5" />
+        <FaChevronLeft className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
       </button>
 
       {/* Right Arrow */}
       <button
         onClick={goToNext}
-        className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-700 p-1 sm:p-2 rounded-full shadow"
+        className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-700 p-2 sm:p-3 lg:p-4 rounded-full shadow"
       >
-        <FaChevronRight size={18} className="sm:w-5 sm:h-5" />
+        <FaChevronRight className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
       </button>
 
-      {/* Dots Indicator */}
-      <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-3">
-        {images.map((_, index) => (
-          <div
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer transition-all duration-300 ${
-              index === currentIndex ? "bg-white scale-125" : "bg-gray-400"
-            }`}
-          ></div>
-        ))}
-      </div>
+      
     </div>
   );
 }

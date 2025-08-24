@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./Component/Header";
 import Card_Header from "./Component/Card_Header";
 import Slider from "./Component/Slider";
@@ -9,36 +9,39 @@ import Furniture from "./Component/Furniture";
 
 import "./App.css";
 
+function MainContent() {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
+  return (
+    <div className="main-content">
+      {isHome ? (
+        <>
+          
+          <Slider />
+          <Mobile_Component />
+          {/* <Electronics />
+          <Tv_Appliance />
+          <Furniture /> */}
+        </>
+      ) : (
+        <Routes>
+          <Route path="/mobiles" element={<Mobile_Component />} />
+          <Route path="/electronics" element={<Electronics />} />
+          <Route path="/appliances" element={<Tv_Appliance />} />
+          <Route path="/furniture" element={<Furniture />} />
+        </Routes>
+      )}
+    </div>
+  );
+}
+
 function App() {
   return (
     <Router>
-      {/* Sticky Header */}
       <Header />
-
-      {/* Content Wrapper */}
-      <div className="pt-20 w-full"> {/* Add padding equal to header height */}
-        <div className="w-full max-w-7xl mx-auto px-4">
-          <Routes>
-            {/* Home Page */}
-            <Route
-              path="/"
-              element={
-                <div className="flex flex-col items-center w-full">
-                  <Card_Header />
-                  <Slider />
-                  <Mobile_Component />
-                  <Electronics />
-                  <Tv_Appliance />
-                  <Furniture />
-                </div>
-              }
-            />
-
-            
-            
-          </Routes>
-        </div>
-      </div>
+      <Card_Header />
+      <MainContent />
     </Router>
   );
 }

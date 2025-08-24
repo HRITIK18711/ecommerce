@@ -28,7 +28,6 @@ export default function Mobile_Component() {
 
     updateItemsPerView();
     window.addEventListener("resize", updateItemsPerView);
-
     return () => window.removeEventListener("resize", updateItemsPerView);
   }, []);
 
@@ -45,7 +44,7 @@ export default function Mobile_Component() {
   };
 
   return (
-    <div className="w-full bg-amber-100 py-6 md:ml-[300px] relative mt-2">
+    <div className="w-full bg-amber-100">
       <h2 className="text-xl text-black md:text-2xl font-bold px-6 md:px-16 mb-4">
         Best Deals on Smartphones
       </h2>
@@ -56,7 +55,9 @@ export default function Mobile_Component() {
         <button
           onClick={prevSlide}
           disabled={currentIndex === 0}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md disabled:opacity-40"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 
+                     bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md 
+                     disabled:opacity-40 disabled:cursor-not-allowed"
         >
           <FaChevronLeft />
         </button>
@@ -64,7 +65,7 @@ export default function Mobile_Component() {
         {/* Cards Wrapper */}
         <div className="overflow-hidden">
           <div
-            className="flex gap-4 transition-transform duration-500"
+            className="flex gap-4 transition-transform duration-500 ease-in-out"
             style={{
               transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
             }}
@@ -72,7 +73,8 @@ export default function Mobile_Component() {
             {mobiles.map((mobile, index) => (
               <div
                 key={index}
-                className={`min-w-[${100 / itemsPerView}%] bg-white flex flex-col items-center cursor-pointer hover:scale-105 transition-transform duration-300`}
+                className="bg-white flex flex-col items-center cursor-pointer 
+                           hover:scale-105 transition-transform duration-300 rounded-md shadow"
                 style={{ minWidth: `${100 / itemsPerView}%` }}
               >
                 <img
@@ -95,7 +97,9 @@ export default function Mobile_Component() {
         <button
           onClick={nextSlide}
           disabled={currentIndex >= mobiles.length - itemsPerView}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md disabled:opacity-40"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 
+                     bg-gray-200 hover:bg-gray-300 p-3 rounded-full shadow-md 
+                     disabled:opacity-40 disabled:cursor-not-allowed"
         >
           <FaChevronRight />
         </button>
