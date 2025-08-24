@@ -28,7 +28,7 @@ export default function Slider() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden mt-5 border-black border-1">
       {/* Slide Image */}
       <div className="relative w-full h-[220px] sm:h-[200px] md:h-[200px] lg:h-[650px] xl:h-[750px]">
         <img

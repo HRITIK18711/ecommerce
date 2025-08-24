@@ -5,14 +5,14 @@ const categories = [
   { icon: "/Image/p2.png", label: "TVs & Appliances" },
   { icon: "/Image/p3.png", label: "Electronics" },
   { icon: "/Image/p4.png", label: "Fashion" },
-  { icon: "/Image/p5.png", label: "Home & Kitchen" },
+  
   { icon: "/Image/p6.png", label: "Furniture" },
   { icon: "/Image/p7.png", label: "Grocery" },
 ];
 
 export default function Card_Header() {
   return (
-    <div className="relative w-full mt-23 md:mt-50 bg-cyan-200 border-b border-cyan-50">
+    <div className="relative w-full mt-23 md:mt-50 bg-cyan-200  border-1 border-black">
       <div
         className="
           grid grid-cols-3 
