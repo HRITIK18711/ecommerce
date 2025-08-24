@@ -6,7 +6,7 @@ import Mobile_Component from "./Component/Mobile_Component";
 import Electronics from "./Component/Electronics";
 import Tv_Appliance from "./Component/Tv_Appliance";
 import Furniture from "./Component/Furniture";
-
+import Footer from "./Component/Footer";
 import "./App.css";
 
 function MainContent() {
@@ -40,8 +40,8 @@ function App() {
   return (
     <Router>
       <Header />
-      
       <MainContent />
+      <Footer/>
     </Router>
   );
 }
