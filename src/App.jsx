@@ -19,7 +19,7 @@ function MainContent() {
         <>
           <Card_Header />
           <Slider />
-          {/* <Mobile_Component /> */}
+          <Mobile_Component />
           {/* <Electronics />
           <Tv_Appliance />
           <Furniture /> */}
