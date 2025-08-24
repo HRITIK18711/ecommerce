@@ -45,23 +45,6 @@ export default function Slider() {
         </div>
       </div>
 
-      {/* Left Arrow */}
-      <button
-        onClick={goToPrev}
-        className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-700 p-2 sm:p-3 lg:p-4 rounded-full shadow"
-      >
-        <FaChevronLeft className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
-      </button>
-
-      {/* Right Arrow */}
-      <button
-        onClick={goToNext}
-        className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-700 p-2 sm:p-3 lg:p-4 rounded-full shadow"
-      >
-        <FaChevronRight className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
-      </button>
-
-      
     </div>
   );
 }
