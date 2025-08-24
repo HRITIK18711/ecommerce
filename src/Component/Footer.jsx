@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Footer() {
     return (
-        <footer className="bg-gray-900 text-gray-300 pt-12 pb-6 mt-30 md:mt-30 md:mb-3">
+        <footer className="bg-gray-900 text-gray-300 pt-12 pb-6 mt-10 md:mt-30 md:mb-3">
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-[360px] md:w-full">
                 {/* Shop */}
                 <div>
