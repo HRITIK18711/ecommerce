@@ -1,7 +1,7 @@
 import React from "react";
 
 const categories = [
-  { icon: "/Image/p1.jpg", label: "Mobiles & Tablets" },
+  { icon: "/Image/p1.jpg", label: "Mobiles " },
   { icon: "/Image/p2.png", label: "TVs & Appliances" },
   { icon: "/Image/p3.png", label: "Electronics" },
   { icon: "/Image/p4.png", label: "Fashion" },

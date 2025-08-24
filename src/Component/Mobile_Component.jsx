@@ -1,5 +1,7 @@
+// Mobile_Component.jsx
 import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";  // ✅ Import for navigation
 
 const mobiles = [
   { img: "/Image/m1.jpg", name: "Vivo T4x 5G", price: "From ₹13,499*" },
@@ -13,6 +15,7 @@ const mobiles = [
 export default function Mobile_Component() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(4);
+  const navigate = useNavigate(); // ✅ Hook for navigation
 
   // Responsive itemsPerView
   useEffect(() => {
@@ -41,6 +44,12 @@ export default function Mobile_Component() {
     if (currentIndex > 0) {
       setCurrentIndex((prev) => prev - 1);
     }
+  };
+
+  // ✅ Handle click on mobile card
+  const handleMobileClick = (mobile) => {
+    navigate("/mobile", { state: { mobile } }); 
+    // This will open Mobile.jsx and pass clicked mobile data
   };
 
   return (
@@ -73,6 +82,7 @@ export default function Mobile_Component() {
             {mobiles.map((mobile, index) => (
               <div
                 key={index}
+                onClick={() => handleMobileClick(mobile)} // ✅ Navigate on click
                 className="bg-white flex flex-col items-center cursor-pointer 
                            hover:scale-105 transition-transform duration-300 rounded-md shadow"
                 style={{ minWidth: `${100 / itemsPerView}%` }}
