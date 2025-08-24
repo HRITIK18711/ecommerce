@@ -10,7 +10,7 @@ export default function Footer() {
                     <h2 className="text-lg font-semibold text-white mb-4">Shop</h2>
                     <ul className="space-y-2">
                         <li><a href="/mobile" className="hover:text-white">Mobiles</a></li>
-                        <li><a href="/" className="hover:text-white">Electronics </a></li>
+                        <li><a href="" className="hover:text-white">Electronics </a></li>
                         <li><a href="/" className="hover:text-white">Tvs and Appliances</a></li>
                         <li><a href="/" className="hover:text-white">Fashion</a></li>
                         <li><a href="/" className="hover:text-white">Furniture</a></li>

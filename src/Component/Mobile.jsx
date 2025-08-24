@@ -1,17 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Mobile = () => {
   const brands = [
-    { image: 'Image/samsung.png', name: 'Samsung' },
-    { image: 'Image/iphonel.png', name: 'iPhone' },
-    { image: 'Image/Moto.png', name: 'Motorola' },
-    { image: 'Image/realme.jpg', name: 'Realme' },
-    { image: 'Image/Redmi.png', name: 'Redmi' },
-    { image: 'Image/vivol.png', name: 'Vivo' },
-    { image: 'Image/oppo.png', name: 'Oppo' },
-    { image: 'Image/google.jpg', name: 'Google' },
-    { image: 'Image/infix.png', name: 'Infinix' },
-    { image: 'Image/iqoo.png', name: 'IQOO' },
+    { image: 'Image/samsung.png', name: 'Samsung' , path:"/sam"},
+    { image: 'Image/iphonel.png', name: 'iPhone' , path:"/sam"},
+    { image: 'Image/Moto.png', name: 'Motorola' ,path:"/sam" },
+    { image: 'Image/realme.jpg', name: 'Realme',path:"/sam" },
+    { image: 'Image/Redmi.png', name: 'Redmi',path:"/sam" },
+    { image: 'Image/vivol.png', name: 'Vivo' ,path:"/sam"},
+    { image: 'Image/oppo.png', name: 'Oppo',path:"/sam" },
+    { image: 'Image/google.jpg', name: 'Google',path:"/sam" },
+    { image: 'Image/infix.png', name: 'Infinix',path:"/sam" },
+    { image: 'Image/iqoo.png', name: 'IQOO',path:"/sam" },
   ];
 
   const latestPhones = [1, 2, 3, 4, 5];
@@ -21,6 +22,10 @@ const Mobile = () => {
       {/* Brand Grid */}
       <div className="md:ml-10 ml-2  grid grid-cols-1 sm:grid-cols-2 bg-cyan-100 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-5">
         {brands.map((brand, index) => (
+            <Link 
+            to={brand.path}
+            key={index}
+            >
           <div
             key={index}
             className="bg-white border border-blue-200 rounded-xl shadow-md hover:shadow-lg transition duration-300 flex flex-col items-center justify-center p-6"
@@ -32,6 +37,7 @@ const Mobile = () => {
             />
             <p className="text-lg font-medium text-gray-800">{brand.name}</p>
           </div>
+          </Link>
         ))}
       </div>
 

@@ -1,18 +1,19 @@
+// Card_Header.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 
 const categories = [
-  { icon: "/Image/p1.jpg", label: "Mobiles " },
-  { icon: "/Image/p2.png", label: "TVs & Appliances" },
-  { icon: "/Image/p3.png", label: "Electronics" },
-  { icon: "/Image/p4.png", label: "Fashion" },
-  
-  { icon: "/Image/p6.png", label: "Furniture" },
-  { icon: "/Image/p7.png", label: "Grocery" },
+  { icon: "/Image/p1.jpg", label: "Mobiles", path: "/mobile" },
+  { icon: "/Image/p2.png", label: "TVs & Appliances", path: "/" },
+  { icon: "/Image/p3.png", label: "Electronics", path: "/" },
+  { icon: "/Image/p4.png", label: "Fashion", path: "/" },
+  { icon: "/Image/p6.png", label: "Furniture", path: "/" },
+  { icon: "/Image/p7.png", label: "Grocery", path: "/" },
 ];
 
 export default function Card_Header() {
   return (
-    <div className="relative w-full mt-23 md:mt-50 bg-cyan-200  border-1 border-black">
+    <div className="relative w-full mt-23 md:mt-50 bg-cyan-200 border-1 border-black">
       <div
         className="
           grid grid-cols-3 
@@ -24,7 +25,8 @@ export default function Card_Header() {
         "
       >
         {categories.map((cat, index) => (
-          <div
+          <Link
+            to={cat.path}
             key={index}
             className="flex flex-col items-center justify-center cursor-pointer group"
           >
@@ -38,7 +40,7 @@ export default function Card_Header() {
             <p className="mt-2 text-xs sm:text-sm md:text-base font-medium text-gray-800 text-center group-hover:text-blue-600 transition-colors">
               {cat.label}
             </p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

@@ -8,6 +8,7 @@ import Tv_Appliance from "./Component/Tv_Appliance";
 import Furniture from "./Component/Furniture";
 import Footer from "./Component/Footer";
 import Mobile from "./Component/Mobile"; // your Mobile.jsx page
+import Samsung from "./Component/Samsung";
 import "./App.css";
 
 function MainContent() {
@@ -32,6 +33,8 @@ function MainContent() {
           <Route path="/appliances" element={<Tv_Appliance />} />
           <Route path="/furniture" element={<Furniture />} />
           <Route path="/mobile" element={<Mobile />} />
+          <Route path="/sam" element={<Samsung />} />
+          
         </Routes>
       )}
     </div>
