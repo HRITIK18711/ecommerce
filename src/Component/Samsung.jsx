@@ -119,22 +119,22 @@ const Samsung = () => {
               <span className="bg-green-600 text-white px-2 py-1 rounded text-sm font-medium">
                 {phone.rating} ★
               </span>
-              <span className="text-sm text-gray-600">{phone.ratingsCount}</span>
+              <span className="text-sm text-white">{phone.ratingsCount}</span>
             </div>
             <ul className="list-disc pl-5 text-sm text-gray-800">
               {phone.specs.map((spec, i) => (
                 <li key={i}>{spec}</li>
               ))}
             </ul>
-            <p className="text-xs text-gray-600">
+            <p className="text-xs text-white">
               * 1 Year Manufacturer Warranty for Device and 6 Months for In-Box Accessories
             </p>
           </div>
 
           {/* Pricing */}
           <div className="flex flex-col justify-start items-end gap-1 text-right">
-            <p className="text-xl font-bold text-gray-900">{phone.price}</p>
-            <p className="text-sm text-gray-500 line-through">{phone.originalPrice}</p>
+            <p className="text-xl font-bold text-white">{phone.price}</p>
+            <p className="text-sm text-white line-through">{phone.originalPrice}</p>
             <p className="text-sm text-green-600 font-semibold">{phone.discount}</p>
             <p className="text-sm text-green-700">{phone.exchangeOffer}</p>
             
