@@ -44,7 +44,7 @@ export default function Mobile_Component() {
   };
 
   return (
-    <div className="w-100 md:w-full bg-amber-100">
+    <div className="w-[360px] md:w-full bg-amber-100">
       <h2 className="text-xl text-black md:text-2xl font-bold px-6 md:px-16 mb-4">
         Best Deals on Smartphones
       </h2>
