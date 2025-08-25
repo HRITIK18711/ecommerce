@@ -8,8 +8,8 @@ export default function Header() {
 
   const links = [
     { icon: <IoHomeOutline />, name: "Home", path: "/" },
-    { icon: <FaUser />, name: "SignUp", path: "/online" },
-    { icon: <FaUser />, name: "Sign in", path: "/support" },
+    { icon: <FaUser />, name: "SignUp", path: "/signup" },
+    { icon: <FaUser />, name: "Log in", path: "/login" },
     { icon: <FaShoppingCart />, name: "Cart", path: "/contact" },
 
   ];

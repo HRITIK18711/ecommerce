@@ -5,10 +5,9 @@ import { Link } from "react-router-dom";
 const categories = [
   { icon: "/Image/p1.jpg", label: "Mobiles", path: "/mobile" },
   { icon: "/Image/p2.png", label: "TVs & Appliances", path: "/" },
-  { icon: "/Image/p3.png", label: "Electronics", path: "/" },
   { icon: "/Image/p4.png", label: "Fashion", path: "/" },
-  { icon: "/Image/p6.png", label: "Furniture", path: "/" },
-  { icon: "/Image/p7.png", label: "Grocery", path: "/" },
+  
+  
 ];
 
 export default function Card_Header() {
