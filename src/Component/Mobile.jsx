@@ -7,12 +7,12 @@ const Mobile = () => {
     { image: "Image/iphonel.png", name: "iPhone", path: "/sam" },
     { image: "Image/Moto.png", name: "Motorola", path: "/sam" },
     { image: "Image/realme.jpg", name: "Realme", path: "/sam" },
-    { image: "Image/Redmi.png", name: "Redmi", path: "/sam" },
-    { image: "Image/vivol.png", name: "Vivo", path: "/sam" },
-    { image: "Image/oppo.png", name: "Oppo", path: "/sam" },
-    { image: "Image/google.jpg", name: "Google", path: "/sam" },
-    { image: "Image/infix.png", name: "Infinix", path: "/sam" },
-    { image: "Image/iqoo.png", name: "IQOO", path: "/sam" },
+    // { image: "Image/Redmi.png", name: "Redmi", path: "/sam" },
+    // { image: "Image/vivol.png", name: "Vivo", path: "/sam" },
+    // { image: "Image/oppo.png", name: "Oppo", path: "/sam" },
+    // { image: "Image/google.jpg", name: "Google", path: "/sam" },
+    // { image: "Image/infix.png", name: "Infinix", path: "/sam" },
+    // { image: "Image/iqoo.png", name: "IQOO", path: "/sam" },
   ];
 
   const latestPhones = [

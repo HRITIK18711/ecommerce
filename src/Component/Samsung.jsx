@@ -86,7 +86,8 @@ const samsungPhones = [
 
 const Samsung = () => {
   return (
-    <div className="p-6 mt-30 bg-cyan-100 md:mt-50 w-[360px] md:w-[1520px] space-y-6">
+    <div className="p-6 mt-20 bg-cyan-100 md:mt-45 w-[360px] md:w-[1520px] space-y-6">
+      <button >Back to Mobile Section</button>
       {samsungPhones.map((phone) => (
         <div
           key={phone.id}
