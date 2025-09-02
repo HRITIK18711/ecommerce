@@ -136,10 +136,10 @@ const Samsung = () => {
 
             {/* Buttons */}
             <div className="flex gap-2">
-              <button className="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-md">
+              <button className="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-red-600 font-semibold rounded-md">
                 Add to Cart
               </button>
-              <button className="px-4 py-2 bg-orange-600 hover:bg-orange-700 text-black font-semibold rounded-md">
+              <button className="px-4 py-2 bg-orange-600 hover:bg-orange-700 text-red-600 font-semibold rounded-md">
                 Buy Now
               </button>
             </div>
