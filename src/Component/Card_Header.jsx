@@ -33,10 +33,10 @@ export default function Card_Header() {
               <img
                 src={cat.icon}
                 alt={cat.label}
-                className="w-10 h-10 ml-150 sm:w-14 sm:h-14 object-contain transition-transform duration-300 group-hover:scale-110"
+                className="w-10 h-10 md:ml-150 sm:w-14 sm:h-14 object-contain transition-transform duration-300 group-hover:scale-110"
               />
             </div>
-            <p className="mt-2 text-xs ml-150 sm:text-sm md:text-base font-medium text-gray-800 text-center group-hover:text-blue-600 transition-colors">
+            <p className="mt-2 text-xs md:ml-150 sm:text-sm md:text-base font-medium text-gray-800 text-center group-hover:text-blue-600 transition-colors">
               {cat.label}
             </p>
           </Link>
