@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Mobile = () => {
+  
   const brands = [
     { image: "Image/samsung.png", name: "Samsung", path: "/sam" },
-    { image: "Image/iphonel.png", name: "iPhone", path: "/sam" },
+    { image: "Image/iphonel.png", name: "iPhone", path: "/iphone" },
     { image: "Image/Moto.png", name: "Motorola", path: "/sam" },
     { image: "Image/realme.jpg", name: "Realme", path: "/sam" },
     // { image: "Image/Redmi.png", name: "Redmi", path: "/sam" },
@@ -163,7 +164,7 @@ const LatestPhoneCard = ({ phone }) => {
       <p className="text-sm text-gray-500 mb-3">{phone.warranty}</p>
       <div className="flex justify-between items-center">
         <span className="text-xl font-bold text-green-600">{phone.price}</span>
-        <button className="px-4 py-2 bg-blue-600 text-black rounded-lg shadow hover:bg-blue-700 transition">
+        <button className="px-4 py-2 bg-blue-600 text-red-600 rounded-lg shadow hover:bg-blue-700 transition">
           Buy Now
         </button>
         

@@ -10,6 +10,7 @@ import Mobile from "./Component/Mobile"; // your Mobile.jsx page
 import Samsung from "./Component/Samsung";
 import Signup from "./Component/Signup";
 import Login from "./Component/Login";
+import Iphone from "./Component/Iphone";
 import "./App.css";
 
 function MainContent() {
@@ -36,7 +37,7 @@ function MainContent() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/mobile" element={<Mobile />} />
           <Route path="/sam" element={<Samsung />} />
-          
+          <Route path="/iphone" element={<Iphone />} />
         </Routes>
       )}
     </div>

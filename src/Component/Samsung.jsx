@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const samsungPhones = [
   {
     id: 4,
@@ -87,7 +87,7 @@ const samsungPhones = [
 const Samsung = () => {
   return (
     <div className="p-6 mt-20 bg-cyan-100 md:mt-45 w-[360px] md:w-[1520px] space-y-6">
-      <button >Back to Mobile Section</button>
+      <Link to="/mobile"><button className='mb-2'>Back to Mobile Section</button></Link>
       {samsungPhones.map((phone) => (
         <div
           key={phone.id}
