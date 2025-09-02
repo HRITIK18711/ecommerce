@@ -6,8 +6,8 @@ const Mobile = () => {
   const brands = [
     { image: "Image/samsung.png", name: "Samsung", path: "/sam" },
     { image: "Image/iphonel.png", name: "iPhone", path: "/iphone" },
-    { image: "Image/Moto.png", name: "Motorola", path: "/sam" },
-    { image: "Image/realme.jpg", name: "Realme", path: "/sam" },
+    { image: "Image/Moto.png", name: "Motorola", path: "/motorola" },
+    { image: "Image/realme.jpg", name: "Realme", path: "/realme" },
     // { image: "Image/Redmi.png", name: "Redmi", path: "/sam" },
     // { image: "Image/vivol.png", name: "Vivo", path: "/sam" },
     // { image: "Image/oppo.png", name: "Oppo", path: "/sam" },

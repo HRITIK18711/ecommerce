@@ -11,6 +11,8 @@ import Samsung from "./Component/Samsung";
 import Signup from "./Component/Signup";
 import Login from "./Component/Login";
 import Iphone from "./Component/Iphone";
+import Motorola from "./Component/Motorola";
+import Realme from "./Component/Realme";
 import "./App.css";
 
 function MainContent() {
@@ -38,6 +40,8 @@ function MainContent() {
           <Route path="/mobile" element={<Mobile />} />
           <Route path="/sam" element={<Samsung />} />
           <Route path="/iphone" element={<Iphone />} />
+          <Route path="/motorola" element={<Motorola />} />
+          <Route path="/realme" element={<Realme />} />
         </Routes>
       )}
     </div>
